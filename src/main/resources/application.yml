@@ -1,0 +1,13 @@
+
+server:
+  port: 9001
+  # pg 80-81
+  tomcat:
+    # Duration between TCP connection established and actually receiving the request (help prevent DoS attacks).
+    # A thread is reserved when the TCP connection is established, and the default timeout is 20 seconds (yikes)
+    connection-timeout: 2s
+    keep-alive-timeout: 15s # how long to keep the connection open whil waiting for new HTTP requests
+    threads:
+      # lower the max and spare when running locally to reserve resources
+      max: 50
+      min-spare: 5 # always running, created at startup
