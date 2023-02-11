@@ -288,3 +288,6 @@ nbdist/
 .nb-gradle/
 
 # End of https://www.toptal.com/developers/gitignore/api/intellij,eclipse,java,maven,git,netbeans
+
+!gradle/wrapper/gradle-wrapper.jar
+**.DS_Store
