@@ -11,3 +11,6 @@ server:
       # lower the max and spare when running locally to reserve resources
       max: 50
       min-spare: 5 # always running, created at startup
+
+polar:
+  greeting: Welcome to the local book catalog!
