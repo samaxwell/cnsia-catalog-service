@@ -21,9 +21,6 @@ spring:
     hikari:
       connection-timeout: 2000 # max time to wait (in ms) getting a connection from the pool
       maximum-pool-size: 5     # max # of connections for hikari to keep alive
-  sql:
-    init:
-      mode: always # run schema.sql
 
 server:
   port: 9001
