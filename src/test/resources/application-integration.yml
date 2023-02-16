@@ -1,0 +1,4 @@
+spring:
+  datasource:
+    #Identifies the PostgreSQL module in Testcontainers. “14.4” is the version of PostgreSQL to use.
+    url: jdbc:tc:postgresql:14.4:///
