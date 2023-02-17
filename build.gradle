@@ -53,6 +53,20 @@ bootRun {
 	systemProperty 'spring.profiles.active', 'testdata'
 }
 
+bootBuildImage {
+	imageName = "${project.name}"
+	environment = ["BP_JVM_VERSION" : "17.*"]
+
+	// Used to upload artifact after successful build
+	docker {
+		publishRegistry {
+			username = project.findProperty("registryUsername")
+			password = project.findProperty("registryToken")
+			url = project.findProperty("registryUrl")
+		}
+	}
+}
+
 tasks.named('test') {
 	useJUnitPlatform()
 }
