@@ -1,10 +1,10 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: catalog-service    # service name
   labels:
     app: catalog-service   # service label
-
 spec:
   selector:
     matchLabels:
@@ -15,16 +15,16 @@ spec:
         app: catalog-service
     spec:
       containers:
-      - name: catalog-service
-        image: catalog-service        # will pull latest because no version is specified
-        imagePullPolicy: IfNotPresent # search for container locally first
-        ports:
-        - containerPort: 9001
-      env:                            # vars applied to pod
-        - name: BPL_JVM_THREAD_COUNT
-          value: "50"
-        - name: SPRING_DATASOURCE_URL
-          # 'polar-postgres' is the name of the db service in kubernetes
-          value: jdbc:postgresql://polar-postgres/polardb_catalog
-        - name: SPRING_PROFILES_ACTIVE
-          value: testdata
+        - name: catalog-service
+          image: catalog-service        # will pull latest because no version is specified
+          imagePullPolicy: IfNotPresent # search for container locally first
+          ports:
+            - containerPort: 9001
+          env:                            # vars applied to pod
+            - name: BPL_JVM_THREAD_COUNT
+              value: "50"
+            - name: SPRING_DATASOURCE_URL
+              # 'polar-postgres' is the name of the db service in kubernetes
+              value: jdbc:postgresql://polar-postgres/polardb_catalog
+            - name: SPRING_PROFILES_ACTIVE
+              value: testdata
