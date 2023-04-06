@@ -6,6 +6,7 @@ metadata:
   labels:
     app: catalog-service   # service label
 spec:
+  replicas: 1 # how many replicas (instances) of our pod we want
   selector:
     matchLabels:
       app: catalog-service
