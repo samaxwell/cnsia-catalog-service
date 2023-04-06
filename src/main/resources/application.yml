@@ -10,7 +10,7 @@ spring:
       uri: http://localhost:8888
       request-connect-timeout: 5000 # timeout on waiting to connect to config server
       request-read-timeout: 5000    # timeout on writing to read configs from config server
-      fail-fast: false              # connection failures are fatal
+      fail-fast: false              # connection failures are fatal; set to 'true' in prod
       retry:                        # only enabled if 'fail-fast: true'
         max-attempts: 6
         initial-interval: 1000      # ms
