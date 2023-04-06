@@ -30,8 +30,15 @@ spec:
           env:                            # vars applied to pod
             - name: BPL_JVM_THREAD_COUNT
               value: "50"
+
+              # use the K8 service name for the config service. Kube proxy will intercept
+              # and forward to appropriate pod
+            - name: SPRING_CLOUD_CONFIG_URI
+              value: http://config-service
+
             - name: SPRING_DATASOURCE_URL
               # 'polar-postgres' is the name of the db service in kubernetes
               value: jdbc:postgresql://polar-postgres/polardb_catalog
+
             - name: SPRING_PROFILES_ACTIVE
               value: testdata
